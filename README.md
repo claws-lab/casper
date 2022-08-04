@@ -27,18 +27,22 @@ Usage
 The detailed execution procedure of **CASPER** is given as follows.
 
 1) Install all required libraries by "pip install -r requirements.txt" (Python 3.6 or higher version is required).
-2) "src/CASPER.py" and "src/library_models.py" include data loading/perturbation creation and training/evaluation parts of CASPER on the LSTM model, respectively. 
-3) "python src/CASPER.py [arguments]" will execute CASPER on the LSTM model with arguments, and specific information of the arguments are as follows.
+2) "src/main.py" and "src/lstm.py" include data loading/perturbation creation and training/evaluation parts of CASPER on the LSTM model, respectively. 
+3) "python src/main.py [arguments]" will execute CASPER on the LSTM model with arguments, and specific information of the arguments are as follows.
 
 ````
 --data_path: path of an input dataset (e.g., data/wikipedia.tsv)
 --epochs: number of epochs for training (default: 50)
 --gpu: GPU number will be used for experiments (default: 0)
---output: name of the output log file (e.g., wikipedia)
---num_pert: number of perturbations (default: 1)
+--output: name of the output log file (e.g., wikipedia_stability)
+--num_perturbation: number of input perturbations (default: 1)
+--max_seq_len: maximum sequence length for CASPER perturbation (default: 50)
+--test_data_ratio: last K% of interactions of each user will be used as test data (default: 0.1)
+--batch_size: mini-batch size for training (default: 1024)
+--learning_rate: learning rate for training (default: 0.001)
 ````
 
-Note that **CASPER** is a gray-box perturbation framework, which can be applied to any sequential recommendation models.  
+Note that **CASPER** is a ***model-agnostic*** perturbation framework, which can be applied to any recommendation models.  
 The provided codes are targeting a LSTM model, and you can customize the code to your models.
 
 Demo
@@ -47,7 +51,7 @@ To run the demo, please follow the following procedure. **CASPER** demo will be 
 
 	1. Check permissions of files (if not, use the command "chmod 777 *")
 	2. Execute "./demo.sh"
-	3. Check "wikipedia" for the demo result of CASPER
+	3. Check "wikipedia_stability" for the demo result of CASPER on Wikipedia dataset
   
 Tested Environment
 ---------------
@@ -56,4 +60,4 @@ We tested our proposed method **CASPER** in Azure Standard-NC24 machines equippe
 Datasets
 ---------------
 The datasets used in the paper are available at [this link](https://drive.google.com/file/d/1YAyI8Yy-xgU6h4xaWNfnBJwVnufMM85m/view?usp=sharing).  
-The input data format must be tab-separated, integer-type for user, items, and timestamps (see the data/synthetic_10K.tensor file).
+The input data format must be tab-separated, integer-type for user, items, and timestamps (see the data/wikipedia.tsv).
