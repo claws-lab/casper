@@ -6,7 +6,7 @@ Overview
 [Sejoon Oh](https://sejoonoh.github.io/), [Berk Ustun](https://www.berkustun.com/), [Julian McAuley](https://cseweb.ucsd.edu/~jmcauley/), and [Srijan Kumar](https://www.cc.gatech.edu/~srijan/)  
 *[ACM International Conference on Information and Knowledge Management (CIKM)](https://www.cikm2022.org/), 2022*  
 
-Link to the paper PDF - will be added soon
+[Link to the paper PDF](https://arxiv.org/abs/2201.12686)
 
 **CASPER** is a novel framework to measure the model stability of recommender systems against input data perturbations. You can obtain the sensitivity of your recommender systems against the interaction-level perturbation done by CASPER perturbation. CASPER perturbs an interaction (deletion, item replacement, or insertion) that impacts the largest number of interactions when it is perturbed. Since CASPER is a ***model-agnostic*** perturbation (except the maximum sequence length of a model), you can easily find an interaction to perturb by processing the dataset and indicating the perturbation types.
 
